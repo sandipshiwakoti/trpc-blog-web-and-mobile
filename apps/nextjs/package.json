@@ -13,7 +13,6 @@
   },
   "dependencies": {
     "@acme/api": "*",
-    "@acme/auth": "*",
     "@acme/db": "*",
     "@chakra-ui/react": "^2.5.2",
     "@emotion/react": "^11.10.6",
@@ -42,7 +41,6 @@
     "autoprefixer": "^10.4.13",
     "eslint": "^8.34.0",
     "eslint-config-acme": "0.0.0",
-    "postcss": "^8.4.21",
     "tsx": "^3.12.3",
     "typescript": "^4.9.5"
   }
