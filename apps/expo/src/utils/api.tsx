@@ -1,5 +1,6 @@
 import React from "react";
 import { Platform } from "react-native";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { httpBatchLink } from "@trpc/client";
 import { createTRPCReact } from "@trpc/react-query";
@@ -37,6 +38,7 @@ const getBaseUrl = () => {
  * A wrapper for your app that provides the TRPC context.
  * Use only in _app.tsx
  */
+
 export const TRPCProvider: React.FC<{ children: React.ReactNode }> = ({
   children,
 }) => {
@@ -47,6 +49,14 @@ export const TRPCProvider: React.FC<{ children: React.ReactNode }> = ({
       links: [
         httpBatchLink({
           url: `${getBaseUrl()}/api/trpc`,
+          headers: async () => {
+            const token = (await AsyncStorage.getItem("@token")) || "";
+            return token
+              ? {
+                  Authorization: token,
+                }
+              : {};
+          },
         }),
       ],
     }),

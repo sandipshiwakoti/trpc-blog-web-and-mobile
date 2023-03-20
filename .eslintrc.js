@@ -17,6 +17,16 @@ const config = {
       rootDir: ["apps/nextjs"],
     },
   },
+  rules: {
+    "@typescript-eslint/no-misused-promises": [
+      2,
+      {
+        checksVoidReturn: {
+          attributes: false,
+        },
+      },
+    ],
+  },
 };
 
 module.exports = config;
