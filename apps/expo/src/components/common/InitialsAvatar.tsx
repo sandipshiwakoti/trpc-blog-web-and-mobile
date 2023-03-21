@@ -5,14 +5,14 @@ import { Avatar, type IBoxProps } from "native-base";
 interface InitialsAvatarProps extends IBoxProps {
   name?: string;
   size?: string;
-  source?: ImageSourcePropType;
+  source?: ImageSourcePropType; //TODO: add user's profile image upload feature and pass source
   children?: React.ReactNode;
 }
 
 const InitialsAvatar: React.FC<InitialsAvatarProps> = ({
   name,
   size = "sm",
-  source,
+  source, //eslint-disable-line
   children,
   ...props
 }) => {
@@ -22,7 +22,7 @@ const InitialsAvatar: React.FC<InitialsAvatarProps> = ({
     .join("");
 
   return (
-    <Avatar bg="green.500" size={size} source={source} {...props}>
+    <Avatar bg="green.500" size={size} {...props}>
       {initials}
       {children}
     </Avatar>
