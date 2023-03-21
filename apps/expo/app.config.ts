@@ -4,6 +4,7 @@ const defineConfig = (): ExpoConfig => ({
   name: "expo",
   slug: "trpc-blog",
   scheme: "expo",
+  owner: "sandipshiwakoti",
   version: "1.0.0",
   orientation: "portrait",
   icon: "./assets/icon.png",
@@ -31,7 +32,7 @@ const defineConfig = (): ExpoConfig => ({
   },
   extra: {
     eas: {
-      projectId: "295d423c-ff8e-47a6-95c6-291dc599d7d5",
+      projectId: "cc51f04c-18e7-4e56-aeda-9e02f5f2141a",
     },
   },
   plugins: ["./expo-plugins/with-modify-gradle.js"],

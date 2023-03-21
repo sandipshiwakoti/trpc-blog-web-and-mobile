@@ -11,7 +11,6 @@ import {
   Heading,
   Icon,
   Input,
-  useTheme,
 } from "native-base";
 import { Controller, useForm, type SubmitHandler } from "react-hook-form";
 import { z } from "zod";
@@ -26,7 +25,6 @@ const Login = () => {
     password: z.string(),
   });
   type LoginSchema = z.infer<typeof loginSchema>;
-  const { colors } = useTheme();
 
   const { isLoading, mutate: login } = useLogin({
     onSuccess: async ({ accessToken }) => {
@@ -41,10 +39,6 @@ const Login = () => {
     control,
   } = useForm<LoginSchema>({
     resolver: zodResolver(loginSchema),
-    defaultValues: {
-      email: "sandip@gmail.com",
-      password: "Password@123",
-    },
   });
 
   const onSubmit: SubmitHandler<LoginSchema> = (data: LoginSchema) => {
@@ -125,7 +119,7 @@ const Login = () => {
         <Link
           href="/register"
           style={{
-            color: colors.blue["500"],
+            color: "blue",
             textAlign: "center",
             marginTop: 10,
           }}
